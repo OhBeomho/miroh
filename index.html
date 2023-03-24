@@ -58,7 +58,7 @@
         }
       } else if (customStage) {
         sessionStorage.setItem("custom-stage", customStage);
-        console.log(customStage);
+        location.assign("/");
       } else {
         alert("Please enter stage number or\ncustom stage data.");
       }

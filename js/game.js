@@ -116,17 +116,17 @@ function checkStage(data) {
   }
 
   const psIndex = playerStartPositions[0].index;
-  playerStartPos[0] = psIndex - (stageSize[0] * Math.floor(psIndex / stageSize[0]));
+  playerStartPos[0] = psIndex % stageSize[0];
   playerStartPos[1] = Math.floor(psIndex / stageSize[0]);
 
   const fIndex = finishPositions[0].index;
-  finishPos[0] = fIndex - (stageSize[0] * Math.floor(fIndex / stageSize[0]));
+  finishPos[0] = fIndex % stageSize[0];
   finishPos[1] = Math.floor(fIndex / stageSize[0]);
 
   for (let wallPos of wallPositions) {
     const wIndex = wallPos.index;
     walls.push([
-      wIndex - (stageSize[0] * Math.floor(wIndex / stageSize[0])),
+      wIndex % stageSize[0],
       Math.floor(wIndex / stageSize[0])
     ]);
   }
