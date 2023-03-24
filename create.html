@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Miroh Map</title>
+  <link rel="stylesheet" href="./css/global.css">
+  <style>
+    .stage-create-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .stage-create-container div {
+      text-align: center;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    td {
+      width: 50px;
+      height: 50px;
+      border: 1px solid black;
+    }
+
+    .output {
+      max-width: 400px;
+      max-height: 400px;
+      overflow: auto;
+    }
+
+    .current-mode {
+      width: 40px;
+      height: 40px;
+      margin: 5px auto;
+      background-color: black;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Create stage</h1>
+  <div class="stage-create-container">
+    <div>
+      <h3>Stage size</h3>
+      <div style="color: gray; font-size: 12px">
+        <b>Warning</b>
+        <br />
+        If you change stage size,<br />
+        You will lose your work.
+      </div>
+      Width <input id="stage-width" placeholder="Width" type="number" min="2" max="50" value="5" />
+      <br />
+      Height <input id="stage-height" placeholder="Height" type="number" min="2" max="50" value="5" />
+    </div>
+    <div>
+      <h3>Output</h3>
+      <div class="size"></div>
+      <div class="output"></div>
+      <button id="copy-output">Copy</button>
+    </div>
+    <div>
+      <h3>Mode</h3>
+      <div class="current-mode"></div>
+      <div class="current-mode-text">Wall</div>
+      <button id="change-mode">Change Mode</button>
+    </div>
+  </div>
+  <table></table>
+  <a href="/">Home</a>
+
+  <script src="./js/create.js"></script>
+</body>
+
+</html>

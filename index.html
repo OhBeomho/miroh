@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miroh</title>
+  <link rel="stylesheet" href="./css/global.css">
+  <style>
+    .stage-input-container {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 15px;
+    }
+
+    .stage-input-container div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Miroh</h1>
+  <div class="stage-input-container">
+    <div>
+      <h3 style="flex: 1">Miroh stage</h3>
+      <input id="stage-number" placeholder="Enter stage number" />
+      <div style="flex: 1"></div>
+    </div>
+    <div>
+      <h3>Custom stage</h3>
+      <textarea id="custom-stage-data" rows="10" cols="20" placeholder="Enter custom stage data."></textarea>
+      <br />
+      <a href="./create.html">Create custom map</a>
+    </div>
+  </div>
+  <button onclick="goStage()">Start</button>
+
+  <script>
+    const STAGE_COUNT = 2;
+
+    function goStage() {
+      const stage = document.getElementById("stage-number").value;
+      const customStage = document.getElementById("custom-stage-data").value;
+
+      if (stage) {
+        if (Number(stage) > STAGE_COUNT) {
+          alert(`Sorry. We have only ${STAGE_COUNT} stages.`);
+        } else if (Number(stage) < 0) {
+          alert("Please enter a number greater than 0.");
+        } else {
+          location.assign(`/game.html?stage=${stage}`);
+        }
+      } else if (customStage) {
+        sessionStorage.setItem("custom-stage", customStage);
+        console.log(customStage);
+      } else {
+        alert("Please enter stage number or\ncustom stage data.");
+      }
+    }
+  </script>
+</body>
+
+</html>
