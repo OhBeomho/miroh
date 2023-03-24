@@ -119,6 +119,9 @@ function checkStage(data) {
   playerStartPos[0] = psIndex % stageSize[0];
   playerStartPos[1] = Math.floor(psIndex / stageSize[0]);
 
+  canvas.style.top = `calc(50% - 25px - ${playerStartPos[1] * 50}px)`;
+  canvas.style.left = `calc(50% - 25px - ${playerStartPos[0] * 50}px)`;
+
   const fIndex = finishPositions[0].index;
   finishPos[0] = fIndex % stageSize[0];
   finishPos[1] = Math.floor(fIndex / stageSize[0]);
