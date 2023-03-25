@@ -1,6 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap");
+
 html,
 body {
   margin: 0;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 body {
@@ -19,4 +22,42 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+button {
+  all: unset;
+  background-color: lightgray;
+  border: 0;
+  padding: 4px;
+  margin: 2px;
+  transition: all 0.2s;
+}
+
+button:hover {
+  background-color: darkgray;
+  box-shadow: 0 0 0 2px lightgray;
+}
+
+input {
+  all: unset;
+  border-bottom: 1px solid black;
+  padding: 4px;
+  margin: 2px;
+  transition: all 0.2s;
+}
+
+input:hover {
+  box-shadow: 0 2px 0 0 lightgray;
+}
+
+textarea {
+  all: unset;
+  border: 1px solid black;
+  padding: 4px;
+  margin: 2px;
+  transition: all 0.2s;
+}
+
+textarea:hover {
+  box-shadow: 0 0 0 2px lightgray;
 }

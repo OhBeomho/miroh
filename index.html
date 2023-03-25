@@ -11,15 +11,19 @@
     .stage-input-container {
       display: flex;
       justify-content: center;
-      align-items: stretch;
+      align-items: center;
       gap: 15px;
     }
 
-    .stage-input-container div {
-      display: flex;
+    .stage-input-container>div {
+      display: none;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+    }
+
+    .stage-input-container .current {
+      display: flex;
     }
   </style>
 </head>
@@ -27,22 +31,23 @@
 <body>
   <h1>Miroh</h1>
   <div class="stage-input-container">
-    <div>
-      <h3 style="flex: 1">Miroh stage</h3>
+    <div class="current">
+      <h3>Miroh stage</h3>
       <input id="stage-number" placeholder="Enter stage number" />
-      <div style="flex: 1"></div>
     </div>
+    <button class="toggle" onclick="toggleInput()">&gt;</button>
     <div>
       <h3>Custom stage</h3>
-      <textarea id="custom-stage-data" rows="10" cols="20" placeholder="Enter custom stage data."></textarea>
+      <textarea id="custom-stage-data" rows="6" cols="20" placeholder="Enter custom stage data."></textarea>
       <br />
       <a href="./create.html">Create custom map</a>
     </div>
   </div>
   <button onclick="goStage()">Start</button>
 
+  <script src="./js/game.js"></script>
   <script>
-    const STAGE_COUNT = 2;
+    const toggleButton = document.querySelector("button.toggle");
 
     function goStage() {
       const stage = document.getElementById("stage-number").value;
@@ -62,6 +67,17 @@
       } else {
         alert("Please enter stage number or\ncustom stage data.");
       }
+    }
+
+    function toggleInput() {
+      const currentInput = document.querySelector(".stage-input-container .current");
+      const otherInput = document.querySelector(".stage-input-container > div:not(.current)");
+
+      otherInput.classList.add("current");
+      currentInput.classList.remove("current");
+
+      currentInput.querySelector("input, textarea").value = "";
+      toggleButton.innerHTML = toggleButton.innerHTML === "&gt;" ? "&lt;" : "&gt;";
     }
   </script>
 </body>

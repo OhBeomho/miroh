@@ -1,4 +1,4 @@
-const STAGE_COUNT = 2;
+const STAGE_COUNT = 3;
 const CELL_WIDTH = 50;
 const CELL_HEIGHT = 50;
 
@@ -80,7 +80,7 @@ async function loadStage() {
     return;
   }
 
-  const splitted = stageData.split("\n");
+  const splitted = stageData.trim().split("\n");
 
   stageSize = splitted[0].split("x").map((v) => Number(v));
   stageData = splitted.slice(1).join("\n");
